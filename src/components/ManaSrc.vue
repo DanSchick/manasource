@@ -4,23 +4,23 @@
     <br />
     <div class="controls">
       <div class="gray">
-        <button @click="incrementGray()">+</button>
+        <button @click="incrementGray($event)">+</button>
         <br />
-        <img @click="incrementGray()" height="100px" width="100px" src="../assets/gray.png" />
+        <img @click="incrementGray($event)" height="100px" width="100px" src="../assets/gray.png" />
         <br />
         <p>{{gray}}</p>
-        <button @click="decrementGray()">-</button>
+        <button @click="decrementGray($event)">-</button>
       </div>
       <div class="casting-cost">
         <h1>{{costString}}</h1>
       </div>
       <div class="color">
-        <button @click="incrementColored()">+</button>
+        <button @click="incrementColored($event)">+</button>
         <br />
-        <img @click="incrementColored()" height="100px" width="100px" src="../assets/red.png" />
+        <img @click="incrementColored($event)" height="100px" width="100px" src="../assets/red.png" />
         <br />
         <p>{{colored}}</p>
-        <button @click="decrementColored()">-</button>
+        <button @click="decrementColored($event)">-</button>
       </div>
     </div>
     <div>
@@ -54,22 +54,34 @@ export default {
     }
   },
   methods: {
-    incrementGray: function() {
+    incrementGray: function(event) {
+      if(event){
+        event.preventDefault();
+      }
       if(this.cmc <= 5){
       this.gray += 1;
       }
     },
-    decrementGray: function() {
+    decrementGray: function(event) {
+      if(event){
+        event.preventDefault();
+      }
       if(this.gray > 0){
         this.gray -= 1;
       }
     },
-    incrementColored: function() {
+    incrementColored: function(event) {
+      if(event){
+        event.preventDefault();
+      }
       if(this.colored < 3 && this.cmc <= 5){
         this.colored += 1;
       }
     },
-    decrementColored: function() {
+    decrementColored: function(event) {
+      if(event){
+        event.preventDefault();
+      }
       if(this.colored > 1){
         this.colored -= 1;
       }
