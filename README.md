@@ -1,4 +1,4 @@
-# manasrc
+# Manasource
 A manabase calculator for Magic: The Gathering.
 
 Currently available at http://manasource.cards/
